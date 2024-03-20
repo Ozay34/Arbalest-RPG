@@ -1,0 +1,17 @@
+name: Prettier
+on:
+  push:
+    branches: [main]
+jobs:
+  Prettify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+      - uses: creyD/prettier_action@v4.3
+        with:
+          prettier_options: src/ --write --no-error-on-unmatched-pattern
+          same_commit: true
+          only_changed: true
