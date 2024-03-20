@@ -5,6 +5,6 @@ import App from "./App.jsx";
 describe("App", () => {
     it('should render logos', () => {
         const {getByTestId} = render(<App />)
-        expect(getByTestId("logos")).not.toBeVisible()
+        expect(getByTestId("logos")).toBeVisible()
     })
 })
