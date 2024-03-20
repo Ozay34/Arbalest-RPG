@@ -18,7 +18,7 @@ jobs:
 
       - uses: creyD/prettier_action@v4.3
         with:
-          prettier_options: --write src/**/*.{jsx}
+          prettier_options: --write "./**/*.{jsx}"
           same_commit: true
           only_changed: true
 
