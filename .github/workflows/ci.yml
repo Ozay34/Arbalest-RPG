@@ -8,24 +8,12 @@ jobs:
         node-version: ['20.x']
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          ref: ${{ github.head_ref }}
-
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-
-      - uses: creyD/prettier_action@v4.3
-        with:
-          prettier_options: src/ --write --no-error-on-unmatched-pattern
-          same_commit: true
-          only_changed: true
-
       - uses: pnpm/action-setup@v3
         with:
           version: 8
           run_install: true
-
       - run: pnpm run build
       - run: pnpm test
